@@ -77,46 +77,50 @@ console.log('Сумма чисел ' + calc.a + ' и ' + calc.b + ' - ' + calc.s
 console.log('Умножение чисел ' + calc.a + ' на ' + calc.b + ' - ' + calc.multiply());
 
 
-function Validator(id, check) {
+function Validator(id) {
 
-    this.check = check;
     this.id = id;
     let notFilled = []; //хранение массива элементов с именем поля которое не заполнено
-    let checked = false;
+    let checked = true
     let information = document.getElementById(id); //получаем форму со всеми полями инпут
-    let inputArray = Object.values(information); //приводим к объекту каждое поле инпут
+    let inputArray = Object.values(information); //приводим к одному объекту все поля инпут
     console.log(inputArray);
 
-    for (let i = 0; i < inputArray.length; i++){ //ищем в каждом инпуте содержимое поля ввода
-        if (inputArray[i].value === '' || inputArray[i].value === 'off'){
+
+    for (let i = 0; i < inputArray.length; i++) { //ищем в каждом инпуте содержимое поля ввода
+        if (inputArray[i].value === '' || inputArray[i].value === 'off') {
             alert('пустая строка')
-            checked = true;
-        }
-        else {
-            alert('не пуста')
             notFilled.push(inputArray[i].name); //получаем в массив имена инпутов для вывода незаполненых полей
+        }
+
+        else if (inputArray[i].value !== '') {
+            alert('не пуста')
+        }
+
+        else if (notFilled.length >= 1){
             checked = false;
         }
     }
-    for (let i = 0; i < notFilled.length; i++){
-        console.log(notFilled);
+
+    for (let i = 0; i < notFilled.length; i++) {
+        console.log('Не заполнено ' + notFilled[i]);
     }
 
 
     function validate(inputArray) {
-        for (let i = 0; i < inputArray.length; i++){
+        for (let i = 0; i < inputArray.length; i++) {
             console.log(inputArray[i]);
         }
-        function emptyArrayReturn() {
+    }
 
-        }
+
+    function emptyArrayReturn() {
+
     }
 }
 
-let valid = new Validator('information' ); // тут должно быть true
+let valid = new Validator('information'); // тут должно быть true
 
 document.addEventListener('DOMContentLoaded', () => {
 
-    let submit = document.getElementById('submit');
 })
-
