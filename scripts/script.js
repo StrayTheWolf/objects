@@ -77,17 +77,45 @@ console.log('Сумма чисел ' + calc.a + ' и ' + calc.b + ' - ' + calc.s
 console.log('Умножение чисел ' + calc.a + ' на ' + calc.b + ' - ' + calc.multiply());
 
 
+function Validator(id, check) {
+
+    this.check = check;
+    this.id = id;
+    let notFilled = []; //хранение массива элементов с именем поля которое не заполнено
+    let checked = false;
+    let information = document.getElementById(id); //получаем форму со всеми полями инпут
+    let inputArray = Object.values(information); //приводим к объекту каждое поле инпут
+    console.log(inputArray);
+
+    for (let i = 0; i < inputArray.length; i++){ //ищем в каждом инпуте содержимое поля ввода
+        if (inputArray[i].value === ''){
+            alert('пустая строка')
+            checked = true;
+        }
+        else {
+            alert('не пуста')
+            notFilled.push(inputArray[i].name);
+        }
+    }
+    for (let i = 0; i < notFilled.length; i++){
+        console.log(notFilled[i]);
+    }
+
+
+    function validate(inputArray) {
+        for (let i = 0; i < inputArray.length; i++){
+            console.log(inputArray[i]);
+        }
+        function emptyArrayReturn() {
+
+        }
+    }
+}
+
+let valid = new Validator('information'); // тут должно быть true
+
 document.addEventListener('DOMContentLoaded', () => {
+
     let submit = document.getElementById('submit');
 })
 
-function Validator(id) {
-
-    function validate() {
-
-    }
-
-    function emptyArrayReturn() {
-
-    }
-}
