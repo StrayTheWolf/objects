@@ -88,17 +88,18 @@ function Validator(id, check) {
     console.log(inputArray);
 
     for (let i = 0; i < inputArray.length; i++){ //ищем в каждом инпуте содержимое поля ввода
-        if (inputArray[i].value === ''){
+        if (inputArray[i].value === '' || inputArray[i].value === 'off'){
             alert('пустая строка')
             checked = true;
         }
         else {
             alert('не пуста')
-            notFilled.push(inputArray[i].name);
+            notFilled.push(inputArray[i].name); //получаем в массив имена инпутов для вывода незаполненых полей
+            checked = false;
         }
     }
     for (let i = 0; i < notFilled.length; i++){
-        console.log(notFilled[i]);
+        console.log(notFilled);
     }
 
 
@@ -112,7 +113,7 @@ function Validator(id, check) {
     }
 }
 
-let valid = new Validator('information'); // тут должно быть true
+let valid = new Validator('information' ); // тут должно быть true
 
 document.addEventListener('DOMContentLoaded', () => {
 

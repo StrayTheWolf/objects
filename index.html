@@ -13,26 +13,11 @@
 
 <div>
     <form class="input-fields" id="information" action="">
-        <label for="name">
-            Имя
-            <input id="name" type="text" required>
-        </label>
-        <label for="date_birth">
-            Дата рождения
-            <input id="date_birth" type="date" required>
-        </label>
-        <label for="eye-color">
-            Цвет глаз
-            <input id="eye-color" type="color" required>
-        </label>
-        <label for="is-admin">
-            Админ ли ?
-            <input id="is-admin" type="checkbox" required>
-        </label>
-        <label for="sex">
-            Пол
-            <input id="sex" type="radio" required>
-            <input id="sex2" type="radio" required>
+        <label>Имя<input name="Имя" type="text" required></label>
+        <label>Дата рождения<input name="Имя" type="date" required></label>
+        <label>Подпись на рассылку<input name="Галочка 'админ'" type="checkbox" required value="off"></label>
+        <label>Пол<input name="Пол" type="radio" required>Муж
+                  <input name="Пол" type="radio" required>Жен
         </label>
         <input id="submit" type="submit">
     </form>
