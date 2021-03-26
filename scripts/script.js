@@ -77,50 +77,34 @@ console.log('Сумма чисел ' + calc.a + ' и ' + calc.b + ' - ' + calc.s
 console.log('Умножение чисел ' + calc.a + ' на ' + calc.b + ' - ' + calc.multiply());
 
 
-function Validator(id) {
+function Validator(form) {
 
-    this.id = id;
+    this.form = document.getElementById(form);
     let notFilled = []; //хранение массива элементов с именем поля которое не заполнено
-    let checked = true
-    let information = document.getElementById(id); //получаем форму со всеми полями инпут
-    let inputArray = Object.values(information); //приводим к одному объекту все поля инпут
-    console.log(inputArray);
+    let inputs = this.form.querySelectorAll('input') //ищем и получаем все инпуты из формы
 
+    this.validate = function () {
 
-    for (let i = 0; i < inputArray.length; i++) { //ищем в каждом инпуте содержимое поля ввода
-        if (inputArray[i].value === '' || inputArray[i].value === 'off') {
-            alert('пустая строка')
-            notFilled.push(inputArray[i].name); //получаем в массив имена инпутов для вывода незаполненых полей
+        for (let i = 0; i < inputs.length; i++) { //ищем в каждом инпуте содержимое поля ввода
+            if (inputs[i].value.length === 0) {
+                notFilled.push(inputs[i].name); //получаем в массив имена инпутов для вывода незаполненых полей
+                alert('пусто')
+                //return false;
+
+            } else if (inputs[i].length !== 0) {
+                alert('не пусто')
+                //return true;
+            }
+
         }
-
-        else if (inputArray[i].value !== '') {
-            alert('не пуста')
-        }
-
-        else if (notFilled.length >= 1){
-            checked = false;
-        }
+        this.emptyInputElements();
     }
 
-    for (let i = 0; i < notFilled.length; i++) {
-        console.log('Не заполнено ' + notFilled[i]);
-    }
-
-
-    function validate(inputArray) {
-        for (let i = 0; i < inputArray.length; i++) {
-            console.log(inputArray[i]);
+    this.emptyInputElements = function () {
+        for (let i = 0; i < notFilled.length; i++) {
+            alert('Не заполнено ' + notFilled[i]);
         }
-    }
-
-
-    function emptyArrayReturn() {
-
     }
 }
 
-let valid = new Validator('information'); // тут должно быть true
-
-document.addEventListener('DOMContentLoaded', () => {
-
-})
+let validator = new Validator('information');

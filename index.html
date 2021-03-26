@@ -12,14 +12,22 @@
 <body>
 
 <div>
-    <form class="input-fields" id="information" action="">
-        <label>Имя<input name="Имя" type="text" value="Иван"></label>
-        <label>Дата рождения<input name="Дата рождения" type="date"></label>
-        <label>Подписка на рассылку<input name="Подписка на рассылку" type="checkbox"value="off"></label>
-        <label>Пол<input name="Пол" type="radio">Муж
-                  <input name="Пол" type="radio">Жен
+    <form class="input-fields" id="information" action="" onsubmit="return validator.validate()">
+        <label>Имя
+            <input name="Имя" type="text">
         </label>
-        <input id="submit" type="submit">
+        <label>Фамилия
+            <input name="Фамилия" type="text">
+        </label>
+        <label>Пароль
+            <input name="Пароль" type="password">
+        </label>
+        <label>email
+            <input name="Электронная почта" type="email">
+        </label>
+        <button type="submit">
+            Отправить
+        </button>
     </form>
 </div>
 <script src="scripts/script.js"></script>
